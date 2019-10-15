@@ -1,0 +1,258 @@
+---
+title: "Atelier 2"
+author: "Justine Aubier"
+date: "15/10/2019"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+
+
+## Présentation des vecteurs
+
+
+
+Les vecteurs sont l’un des objets de bases de R et correspondent à une liste de valeurs. Leurs propriétés fondamentales sont :
+
+
+
+1. les vecteurs sont unidimensionnels (i.e. c’est un objet à une seule dimension, à la différence d’une matrice par exemple) ;
+
+2.toutes les valeurs d’un vecteur sont d’un seul et même type ;
+
+3. les vecteurs ont une longueur qui correspond au nombre de valeurs contenues dans le vecteur.
+
+
+
+```{r}
+
+x <- seq(from=0,to=100,by=1)
+
+mean(x)
+
+sd(x)
+
+```
+
+
+
+## Insertion graphique
+
+
+```{r}
+
+x <- seq(from=0.1,to=10,by=0.01)
+
+length(x)
+
+plot(x,log(x),type='l',col='blue')
+
+```
+
+
+
+
+
+
+```{r}
+
+x <- c(1,2,4)
+
+x
+
+class(x)
+
+y <- c(sqrt(2),sqrt(3),sqrt(5))
+
+y
+
+class(y)
+
+z <- c('pepito','juanito','zumalacarregui')
+
+z
+
+class(z)
+
+```
+
+
+
+## Une petite base de données
+
+
+
+```{r}
+
+taille <- c(1.88, 1.65, 1.92, 1.76)
+
+taille
+
+class(taille)
+
+sexe <- c("h", "f", "h", "f")
+
+sexe
+
+class(sexe)
+
+```
+
+
+
+# Fonction rep()
+
+
+
+```{r}
+
+x <- rep('pepito',3)
+
+x
+
+y <- rep(c(sqrt(2),3),4)
+
+y
+
+```
+
+
+
+# Fonction seq()
+
+
+
+```{r}
+
+x <- seq(from=-10,to=10,by=2.5)
+
+x
+
+```
+
+
+
+## L'opèrateur :
+
+
+
+```{r}
+
+x
+
+x[3:5]
+
+length(x[3:5])
+
+```
+
+ 
+
+## Vecteurs remarquables
+
+
+
+```{r}
+
+pi
+
+LETTERS
+
+letters
+
+month.name
+
+month.abb
+
+```
+
+ 
+
+## Valeurs manquantes
+
+
+
+```{r}
+
+taille <- c(1.88, NA, 1.65, 1.92, 1.76, NA)
+
+taille
+
+mean(taille,na ='TRUE')
+
+sd(taille,na = 'TRUE')
+
+length(taille)
+
+class(taille)
+
+is.na(taille)
+
+summary(taille)
+
+sexe <- c("h", "f", NA, "h", NA, "f")
+
+sexe
+
+```
+
+
+
+## Indexation par condition
+
+
+
+```{r}
+
+sexe <- c(rep("f",25),rep("h",50))
+
+taille <- rnorm(75,165,4)
+
+bd <- data.frame(sexe,taille)
+
+taille.f <- bd$taille[sexe == "f"]
+
+taille.h <- bd$taille[sexe == "h"]
+
+boxplot(taille,taille.f,taille.h)
+
+mean(taille)
+mean(taille.f)
+mean(taille.h)
+sexe[taille>170]
+cond <- sexe[taiile<164]
+cond
+table(cond)
+table(cond)/length(taille))*100
+
+```
+
+
+
+
+
+
